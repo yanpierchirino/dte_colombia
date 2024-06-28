@@ -5,9 +5,14 @@
 # Environment variables
 .env
 
+
+
+
 # Compiled Python files
 __pycache__/
 .mypy_cache/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
+build/

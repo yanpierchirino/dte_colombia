@@ -1,0 +1,18 @@
+[flake8]
+exclude = .git,__pycache__,old,build,dist
+max-line-length = 88
+enable-extensions = G
+ignore =
+    ; Espacio antes de ':'
+    E203,
+    ; Operador binario antes de la línea
+    W503,
+    F401,
+    ; 'from module import *' usado; deshabilitar para análisis más profundo
+    F403,
+    F405,
+    E501,
+    E704,
+
+[flake8-bugbear]
+max-complexity = 10

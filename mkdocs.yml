@@ -1,4 +1,13 @@
 site_name: DTE Colombia
-theme: readthedocs
+site_author: Yan Chirino <https://yanchirino.com>
+site_url: https://yanpierchirino.github.io/dte_colombia
+site_description: Documentation for the SDK for the electronic invoicing API in Colombia by IKU Solutions
+
+repo_url: https://github.com/yanpierchirino/dte_colombia
+
 nav:
   - Home: index.md
+
+theme:
+  name: readthedocs
+  language: en

@@ -11,9 +11,8 @@ requires = ["requests>=2.32.3", "pydantic>=2.7.4"]
 
 setup(
     name="dte_colombia",
-    version="0.1.0",
+    version="0.0.1",
     description="SDK for the electronic invoicing API in Colombia by IKU Solutions",
-    long_description=open("README.rst").read(),
     author="Yan Chirino",
     author_email="support@yanchirino.com",
     url="https://github.com/yanpierchirino/dte_colombia",

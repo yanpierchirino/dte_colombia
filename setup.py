@@ -16,7 +16,7 @@ setup(
     long_description=open("README.rst").read(),
     author="Yan Chirino",
     author_email="support@yanchirino.com",
-    url="https://github.com/yanchirino/dte_colombia",
+    url="https://github.com/yanpierchirino/dte_colombia",
     packages=find_packages(exclude=["tests*"]),
     install_requires=requires,
     python_requires=">= 3.10.0",
@@ -32,7 +32,7 @@ setup(
         "Programming Language :: Python :: 3.12",
     ],
     project_urls={
-        "Documentation": "https://dte.yanchirino.com/v1/documentation/api/latest/index.html",
-        "Source": "https://github.com/yanchirino/dte_colombia",
+        "Documentation": "https://yanpierchirino.github.io/dte_colombia",
+        "Source": "https://github.com/yanpierchirino/dte_colombia",
     },
 )

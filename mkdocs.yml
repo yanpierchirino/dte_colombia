@@ -1,0 +1,4 @@
+site_name: DTE Colombia
+theme: readthedocs
+nav:
+  - Home: index.md

@@ -5,8 +5,8 @@
 # Environment variables
 .env
 
-
-
+# Docs
+site/
 
 # Compiled Python files
 __pycache__/

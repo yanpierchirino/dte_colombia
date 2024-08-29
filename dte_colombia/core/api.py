@@ -1,7 +1,7 @@
 import requests
 
-from dte_colombia.constants import BASE_URL
-from dte_colombia.models.utilities import AccountInfo
+from dte_colombia.data.constants import BASE_URL
+from dte_colombia.schemas.utilities import AccountInfo
 
 
 class DTEClient:
@@ -25,10 +25,11 @@ class DTEClient:
     def get_numbering_range(
         self, resolution_number: str, account_info: AccountInfo
     ) -> dict | None:
-        url = f"{self.base_url}/dte/numberingRange"
+        url = f"{self.base_url}/numberingRange"
+        headers = self.__get_headers()
         payload = {"resolution_number": resolution_number, "account": account_info}
         try:
-            response = requests.post(url, headers=self.__get_headers(), json=payload)
+            response = requests.post(url, headers=headers, json=payload)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -37,11 +38,24 @@ class DTEClient:
     def get_xml_by_document_key(
         self, document_key: str, account_info: AccountInfo
     ) -> dict:
-        url = f"{self.base_url}/dte/xmlByDocumentKey"
+        url = f"{self.base_url}/xmlByDocumentKey"
+        headers = self.__get_headers()
         payload = {"documentKey": document_key, "account": account_info}
 
         try:
-            response = requests.post(url, headers=self.__get_headers(), json=payload)
+            response = requests.post(url, headers=headers, json=payload)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            raise Exception(e)
+
+    def get_exchange_emails(self, account_info: AccountInfo) -> dict:
+        url = f"{self.base_url}/exchangeEmails"
+        headers = self.__get_headers()
+        payload = {"account": account_info}
+
+        try:
+            response = requests.post(url, headers=headers, json=payload)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:

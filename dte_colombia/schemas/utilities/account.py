@@ -1,13 +1,14 @@
 from typing import Optional
+
 from pydantic import BaseModel
 
 
 class AccountInfo(BaseModel):
     """
     Account information required for DTE operations.
-    
+
     Attributes:
-    
+
     - profile_execution_id: The profile execution ID.
     - test_set_id: The test set ID.
     - company_vat: The company VAT [NIT, CC, CE, Etc...].
@@ -17,6 +18,7 @@ class AccountInfo(BaseModel):
     - certificate: The certificate (.pfx Base64 encoded).
     - certificate_pass: The certificate password.
     """
+
     profile_execution_id: int
     test_set_id: Optional[str]
     company_vat: str

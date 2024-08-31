@@ -1,14 +1,19 @@
 from datetime import date
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_serializer
 
 
 class InvoiceResolution(BaseModel):
-    serie: str
-    range_from: int
-    range_end: int
-    resolucion_date: date
-    date_start: date
-    date_end: date
+    prefix: str
+    resolution_date: date
+    from_number: int
+    to_number: int
+    valid_date_from: date
+    valid_date_to: date
     technical_key: str
-    state: str
+
+    @field_serializer(
+        "resolution_date", "valid_date_from", "valid_date_to", when_used="always"
+    )
+    def serialize_date(self, value: date) -> str:
+        return value.strftime("%Y-%m-%d")

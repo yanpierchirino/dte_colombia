@@ -1,8 +1,8 @@
 import requests
 
-from dte_colombia.data.constants import BASE_URL
+from dte_colombia.data.constants import BASE_URL, INVOICE_RESOLUTION_MAP
 from dte_colombia.schemas.common.response import Response
-from dte_colombia.schemas.utilities import AccountInfo
+from dte_colombia.schemas.utilities import AccountInfo, InvoiceResolution
 
 
 class DTEClient:
@@ -33,8 +33,14 @@ class DTEClient:
             "account": account_info.model_dump(),
         }
         try:
-            response = requests.post(url, headers=headers, json=payload)
-            return Response(**response.json())
+            result = requests.post(url, headers=headers, json=payload)
+            response = Response(**result.json())
+            if response.success and isinstance(response.data, dict):
+                resolution = {}
+                for key in response.data.keys():
+                    resolution[INVOICE_RESOLUTION_MAP[key]] = response.data[key]
+                response.data = InvoiceResolution(**resolution)
+            return Response(**result.json())
         except requests.exceptions.RequestException as e:
             raise Exception(e)
 

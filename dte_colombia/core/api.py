@@ -1,6 +1,7 @@
 import requests
 
 from dte_colombia.data.constants import BASE_URL
+from dte_colombia.schemas.common.response import Response
 from dte_colombia.schemas.utilities import AccountInfo
 
 
@@ -24,7 +25,7 @@ class DTEClient:
 
     def get_numbering_range(
         self, resolution_number: str, account_info: AccountInfo
-    ) -> dict | None:
+    ) -> Response | Exception:
         url = f"{self.base_url}/numberingRange"
         headers = self.__get_headers()
         payload = {
@@ -33,33 +34,30 @@ class DTEClient:
         }
         try:
             response = requests.post(url, headers=headers, json=payload)
-            response.raise_for_status()
-            return response.json()
+            return Response(**response.json())
         except requests.exceptions.RequestException as e:
             raise Exception(e)
 
     def get_xml_by_document_key(
         self, document_key: str, account_info: AccountInfo
-    ) -> dict:
+    ) -> Response | Exception:
         url = f"{self.base_url}/xmlByDocumentKey"
         headers = self.__get_headers()
         payload = {"documentKey": document_key, "account": account_info.model_dump()}
 
         try:
             response = requests.post(url, headers=headers, json=payload)
-            response.raise_for_status()
-            return response.json()
+            return Response(**response.json())
         except requests.exceptions.RequestException as e:
             raise Exception(e)
 
-    def get_exchange_emails(self, account_info: AccountInfo) -> dict:
+    def get_exchange_emails(self, account_info: AccountInfo) -> Response | Exception:
         url = f"{self.base_url}/exchangeEmails"
         headers = self.__get_headers()
         payload = {"account": account_info.model_dump()}
 
         try:
             response = requests.post(url, headers=headers, json=payload)
-            response.raise_for_status()
-            return response.json()
+            return Response(**response.json())
         except requests.exceptions.RequestException as e:
             raise Exception(e)

@@ -27,7 +27,10 @@ class DTEClient:
     ) -> dict | None:
         url = f"{self.base_url}/numberingRange"
         headers = self.__get_headers()
-        payload = {"resolution_number": resolution_number, "account": account_info}
+        payload = {
+            "resolution_number": resolution_number,
+            "account": account_info.model_dump(),
+        }
         try:
             response = requests.post(url, headers=headers, json=payload)
             response.raise_for_status()
@@ -40,7 +43,7 @@ class DTEClient:
     ) -> dict:
         url = f"{self.base_url}/xmlByDocumentKey"
         headers = self.__get_headers()
-        payload = {"documentKey": document_key, "account": account_info}
+        payload = {"documentKey": document_key, "account": account_info.model_dump()}
 
         try:
             response = requests.post(url, headers=headers, json=payload)
@@ -52,7 +55,7 @@ class DTEClient:
     def get_exchange_emails(self, account_info: AccountInfo) -> dict:
         url = f"{self.base_url}/exchangeEmails"
         headers = self.__get_headers()
-        payload = {"account": account_info}
+        payload = {"account": account_info.model_dump()}
 
         try:
             response = requests.post(url, headers=headers, json=payload)

@@ -17,6 +17,14 @@ setup(
     author_email="support@yanchirino.com",
     url="https://github.com/yanpierchirino/dte_colombia",
     packages=find_packages(exclude=["tests*"]),
+    include_package_data=True,  # Asegura que se incluyan los archivos adicionales
+    package_data={
+        "dte_colombia": [
+            "stubs/*.pyi"
+        ],  # Incluye los archivos .pyi dentro de la carpeta stubs
+    },
+    # Marca el paquete como compatible con type hints
+    zip_safe=False,  # Para compatibilidad con algunas herramientas de tipado
     install_requires=requires,
     python_requires=">= 3.10.0",
     classifiers=[

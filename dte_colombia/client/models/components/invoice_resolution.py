@@ -16,4 +16,7 @@ class InvoiceResolution(BaseModel):
         "resolution_date", "valid_date_from", "valid_date_to", when_used="always"
     )
     def serialize_date(self, value: date) -> str:
-        return value.strftime("%Y-%m-%d")
+        try:
+            return value.isoformat()
+        except AttributeError:
+            return str(value)

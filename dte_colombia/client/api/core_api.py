@@ -81,7 +81,7 @@ class DTEClient:
             raise Exception(e)
 
     def send_invoice(self, payload: DTEClientRequest) -> DocumentSyncResult | Exception:
-        url = f"{self.base_url}/documents/sendInvoice"
+        url = f"{self.base_url}/documents/sendSalesInvoice"
         return self._send(url, payload)
 
     def send_credit_note(
@@ -99,7 +99,7 @@ class DTEClient:
     def send_suport_document(
         self, payload: DTEClientRequest
     ) -> DocumentSyncResult | Exception:
-        url = f"{self.base_url}/documents/sendInvoice"
+        url = f"{self.base_url}/documents/sendSupportDocument"
         return self._send(url, payload)
 
     def check_zip_status(

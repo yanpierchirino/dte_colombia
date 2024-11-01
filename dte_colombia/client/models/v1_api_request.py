@@ -32,6 +32,6 @@ class SupportDocumentRequest(BaseModel):
     account: AccountInfo
 
 
-class DocumentStatusRequest(BaseModel):
+class DocumentRequest(BaseModel):
     id: str
     account: AccountInfo

@@ -1,16 +1,12 @@
 from datetime import date
 
 from pydantic import BaseModel, field_serializer
-
-
-class InvoiceDocumentUUID(BaseModel):
-    code: str
-    name: str
+from .uuid import DocumentUUID
 
 
 class InvoiceDocumentReference(BaseModel):
     id: str
-    uuid: InvoiceDocumentUUID
+    uuid: DocumentUUID
     issue_date: date
     document_description: str
 

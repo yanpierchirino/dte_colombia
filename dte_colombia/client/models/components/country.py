@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class CountryName(BaseModel):
-    language_id: str
+    language_id: str = "es"
     name: str
 
 

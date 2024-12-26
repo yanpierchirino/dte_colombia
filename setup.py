@@ -6,7 +6,7 @@ distutils/setuptools install script.
 
 from setuptools import find_packages, setup
 
-requires = ["requests>=2.32.3", "pydantic>=2.7.4", "pycryptodome==3.21.0"]
+requires = ["requests>=2.32.3", "pydantic>=2.7.4", "pycryptodome==3.21.0", "xmltodict==0.13.0"]
 
 
 setup(

@@ -22,3 +22,4 @@ from .requested_monetary_total import *
 from .tax import *
 from .tax_total import *
 from .uuid import *
+from .result_of_verification import *

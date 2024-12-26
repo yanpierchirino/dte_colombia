@@ -9,3 +9,8 @@ class UUID(BaseModel):
     id: ProfileExcecutionId
     name: str
     content: str
+
+
+class DocumentUUID(BaseModel):
+    code: str
+    name: str

@@ -6,3 +6,6 @@ Esta biblioteca es un SDK para interactuar con la API de facturación electróni
 
 ```bash
 pip install dte_colombia
+
+
+# python setup.py bdist_wheel

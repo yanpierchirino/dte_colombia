@@ -20,4 +20,4 @@ class Taxes(str, Enum):
     FUEL_SUERCHARGE = "25"  # Sobretasa a los combustibles
     SORDICOM = "26"  # Contribución minoristas (Combustibles)
     IC_DATOS = "30"  # Impuesto al Consumo de Datos
-    ZZ = "99"  # Otros
+    ZZ = "ZZ"  # No aplica
